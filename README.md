@@ -1,2 +1,2 @@
-# DLoRAL_code
+# DLoRAL
 Official Implementation of “One-Step Diffusion for Detail-Rich and Temporally Consistent Video Super-Resolution”
