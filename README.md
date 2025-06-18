@@ -8,10 +8,14 @@ Official Implementation of “One-Step Diffusion for Detail-Rich and Temporally 
 
 ## 🌟 Overview Framework
 
-![DLoRAL](figs/framework.png)
+<p align="center">
 
+<img src="assets/pipeline.svg" alt="DLoRAL Framework">
 
-(a) Training procedure of PiSA-SR. During the training process, two LoRA modules are respectively optimized for pixel-level and semantic-level enhancement.
+</p>
 
-(b) Inference procedure of PiSA-SR. During the inference stage, users can use the default setting to reconstruct the high-quality image in one-step diffusion or adjust λ<sub>pix</sub> and λ<sub>sem</sub> to control the strengths of pixel-level and semantic-level enhancement.
+🛠️**Training**: A dynamic dual-stage training scheme alternates between optimizing temporal coherence (consistency stage) and refining high-frequency spatial details (enhancement stage) with smooth loss interpolation to ensure stability.
+
+🖼️**Inference**: During inference, both C-LoRA and D-LoRA are merged into the frozen diffusion UNet, enabling one-step enhancement of low-quality inputs into high-quality outputs.
+
 ## 😍 Visual Results
