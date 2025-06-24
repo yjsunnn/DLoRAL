@@ -13,14 +13,17 @@
 
 <div>
     <h4 align="center">
-<!--         <a href="https://shangchenzhou.com/projects/upscale-a-video/" target='_blank'>
-        <img src="https://img.shields.io/badge/🐳-Project%20Page-blue">
-        </a> -->
+        <a href="https://yjsunnn.github.io/DLoRAL-project/" target='_blank'>
+        <img src="https://img.shields.io/badge/💡-Project%20Page-gold">
+        </a>
         <a href="https://arxiv.org/pdf/2506.15591" target='_blank'>
         <img src="https://img.shields.io/badge/arXiv-2312.06640-b31b1b.svg">
         </a>
         <a href="https://www.youtube.com/embed/Jsk8zSE3U-w?si=jz1Isdzxt_NqqDFL&vq=hd1080" target='_blank'>
         <img src="https://img.shields.io/badge/Demo%20Video-%23FF0000.svg?logo=YouTube&logoColor=white">
+        </a>
+        <a href="https://www.youtube.com/embed/xzZL8X10_KU?si=vOB3chIa7Zo0l54v" target="_blank">
+        <img src="https://img.shields.io/badge/2--Min%20Explainer-brightgreen?logo=YouTube&logoColor=white">
         </a>
         </a>
         <a href="https://github.com/yjsunnn/Awesome-video-super-resolution-diffusion" target="_blank">
@@ -40,6 +43,7 @@
 </p>
 
 ## ⏰ Update
+- **2025.06.24**: The project page is available, including a brief 2-minute explanation video, more visual results and relevant researches.
 - **2025.06.17**: The repo is released.
 
 :star: If DLoRAL is helpful to your videos or projects, please help star this repo. Thanks! :hugs:
