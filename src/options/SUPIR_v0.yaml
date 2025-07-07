@@ -1,0 +1,43 @@
+model:
+  target: SUPIR.models.SUPIR_model.SUPIRModel
+  params:
+    ae_dtype: bf16
+    diffusion_dtype: fp16
+    scale_factor: 0.13025
+    disable_first_stage_autocast: True
+
+    first_stage_config:
+      target: sgm.models.autoencoder.AutoencoderKLInferenceWrapper
+      params:
+        ckpt_path: ~
+        embed_dim: 4
+        monitor: val/rec_loss
+        ddconfig:
+          attn_type: vanilla-xformers
+          double_z: true
+          z_channels: 4
+          resolution: 256
+          in_channels: 3
+          out_ch: 3
+          ch: 128
+          ch_mult: [ 1, 2, 4, 4 ]
+          num_res_blocks: 2
+          attn_resolutions: [ ]
+          dropout: 0.0
+        lossconfig:
+          target: torch.nn.Identity
+
+    p_p:
+        'Cinematic, High Contrast, highly detailed, taken using a Canon EOS R camera, 
+             hyper detailed photo - realistic maximum detail, 32k, Color Grading, ultra HD, extreme meticulous detailing, 
+             skin pore detailing, hyper sharpness, perfect without deformations.'
+    n_p:
+        'painting, oil painting, illustration, drawing, art, sketch, oil painting, cartoon, CG Style, 3D render, 
+        unreal engine, blurring, dirty, messy, worst quality, low quality, frames, watermark, signature, 
+        jpeg artifacts, deformed, lowres, over-smooth'
+
+SDXL_CKPT: /home/notebook/data/group/LowLevelLLM/models/diffusion_models/stable-diffusion-xl-base-1.0/sd_xl_base_1.0_0.9vae.safetensors
+# SDXL_CKPT: /home/notebook/data/group/LowLevelLLM/models/diffusion_models/superIR/sd_xl_base_1.0.safetensors
+SUPIR_CKPT_F: /home/notebook/data/group/LowLevelLLM/models/diffusion_models/superIR/SUPIR-v0F.ckpt
+SUPIR_CKPT_Q: /home/notebook/data/group/LowLevelLLM/models/diffusion_models/superIR/SUPIR-v0Q.ckpt
+SUPIR_CKPT: ~
