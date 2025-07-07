@@ -43,15 +43,28 @@
 </p>
 
 ## ⏰ Update
+- **2025.07.07**: The inference is available.
 - **2025.06.24**: The project page is available, including a brief 2-minute explanation video, more visual results and relevant researches.
 - **2025.06.17**: The repo is released.
 
 :star: If DLoRAL is helpful to your videos or projects, please help star this repo. Thanks! :hugs:
 
+😊 You may also want to check our relevant works:
+
+1. **OSEDiff (NIPS2024)** [Paper](https://arxiv.org/abs/2406.08177) | [Code](https://github.com/cswry/OSEDiff/)  
+
+   Real-time Image SR algorithm that has been applied to the OPPO Find X8 series.
+
+2. **PiSA-SR (CVPR2025)** [Paper](https://arxiv.org/pdf/2412.03017) | [Code](https://github.com/csslc/PiSA-SR) 
+
+   Pioneering exploration of Dual-LoRA paradigm in Image SR.
+
 ## 👀 TODO
-- [ ] Release inference code.
+- [x] Release inference code.
+- [ ] Colab and Huggingface UI for convenient test (Soon!).
 - [ ] Release training code.
 - [ ] Release training data.
+
 
 ## 🌟 Overview Framework
 
@@ -61,9 +74,52 @@
 
 </p>
 
-🛠️**Training**: A dynamic dual-stage training scheme alternates between optimizing temporal coherence (consistency stage) and refining high-frequency spatial details (enhancement stage) with smooth loss interpolation to ensure stability.
+**Training**: A dynamic dual-stage training scheme alternates between optimizing temporal coherence (consistency stage) and refining high-frequency spatial details (enhancement stage) with smooth loss interpolation to ensure stability.
 
-🖼️**Inference**: During inference, both C-LoRA and D-LoRA are merged into the frozen diffusion UNet, enabling one-step enhancement of low-quality inputs into high-quality outputs.
+**Inference**: During inference, both C-LoRA and D-LoRA are merged into the frozen diffusion UNet, enabling one-step enhancement of low-quality inputs into high-quality outputs.
+
+
+## 🔧 Dependencies and Installation
+
+1. Clone repo
+    ```bash
+    git clone https://github.com/yjsunnn/DLoRAL.git
+    cd DLoRAL
+    ```
+
+2. Install dependent packages
+    ```bash
+    conda create -n DLoRAL python=3.10 -y
+    conda activate DLoRAL
+    pip install -r requirements.txt
+    ```
+
+3. Download Models 
+#### Dependent Models
+* [SD21 Base](https://huggingface.co/stabilityai/stable-diffusion-2-1-base)
+* [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth)
+* [DAPE](https://drive.google.com/file/d/1KIV6VewwO2eDC9g4Gcvgm-a0LDI7Lmwm/view?usp=drive_link)
+
+All models could be put into **/path/to/DLoRAL/preset/models** for convenience.
+
+## ⚡ Quick Inference
+For Real-World Video Super-Resolution:
+
+```
+python src/test_DLoRAL.py     \
+--pretrained_model_path /path/to/stable-diffusion-2-1-base     \
+--ram_ft_path /path/to/DAPE.pth     \
+--ram_path '/path/to/ram_swin_large_14m.pth'     \
+--merge_and_unload_lora False     \
+--process_size 512     \
+--pretrained_model_name_or_path '/path/to/stable-diffusion-2-1-base'     \
+--vae_encoder_tiled_size 4096     \
+--load_cfr     \
+--pretrained_path /path/to/model_checkpoint.pkl     \
+--stages 1     \
+-i /path/to/input_videos/     \
+-o /path/to/results
+```
 
 
 
