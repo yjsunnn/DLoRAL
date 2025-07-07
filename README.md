@@ -43,7 +43,7 @@
 </p>
 
 ## ⏰ Update
-- **2025.07.07**: The inference is available.
+- **2025.07.07**: The inference code is available.
 - **2025.06.24**: The project page is available, including a brief 2-minute explanation video, more visual results and relevant researches.
 - **2025.06.17**: The repo is released.
 
