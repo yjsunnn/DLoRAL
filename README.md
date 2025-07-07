@@ -102,7 +102,7 @@
 
 All models could be put into **/path/to/DLoRAL/preset/models** for convenience.
 
-## ⚡ Quick Inference
+## 🖼️ Quick Inference
 For Real-World Video Super-Resolution:
 
 ```
