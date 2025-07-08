@@ -60,6 +60,10 @@
 
    Pioneering exploration of Dual-LoRA paradigm in Image SR.
 
+3. **Awesome Diffusion Models for Video Super-Resolution** [Repo](https://github.com/yjsunnn/Awesome-video-super-resolution-diffusion)
+
+   A curated list of resources for Video Super-Resolution (VSR) using Diffusion Models.
+
 ## 👀 TODO
 - [x] Release inference code.
 - [ ] Colab and Huggingface UI for convenient test (Soon!).
