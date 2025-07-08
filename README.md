@@ -43,7 +43,8 @@
 </p>
 
 ## ⏰ Update
-- **2025.07.07**: The inference code is available.
+
+- **2025.07.08**: The inference code and pretrained weights are available.
 - **2025.06.24**: The project page is available, including a brief 2-minute explanation video, more visual results and relevant researches.
 - **2025.06.17**: The repo is released.
 
@@ -96,11 +97,13 @@
 
 3. Download Models 
 #### Dependent Models
-* [SD21 Base](https://huggingface.co/stabilityai/stable-diffusion-2-1-base)
-* [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth)
-* [DAPE](https://drive.google.com/file/d/1KIV6VewwO2eDC9g4Gcvgm-a0LDI7Lmwm/view?usp=drive_link)
+* [SD21 Base](https://huggingface.co/stabilityai/stable-diffusion-2-1-base) --> put into **/path/to/DLoRAL/preset_models/stable-diffusion-2-1-base**
+* [Bert-Base](https://huggingface.co/google-bert/bert-base-uncased) --> put into **/path/to/DLoRAL/preset_models/bert-base-uncased**
+* [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth) --> put into **/path/to/DLoRAL/preset/models/ram_swin_large_14m.pth**
+* [DAPE](https://drive.google.com/file/d/1KIV6VewwO2eDC9g4Gcvgm-a0LDI7Lmwm/view?usp=drive_link) --> put into **/path/to/DLoRAL/preset/models/DAPE.pth**
+* [Pretrained Weights](https://drive.google.com/file/d/1vpcaySpRx_K-tXq2D2EBqFZ-03Foky8G/view?usp=sharing) --> put into **/path/to/DLoRAL/preset/models/checkpoints/model.pkl**
 
-All models could be put into **/path/to/DLoRAL/preset/models** for convenience.
+Each path can be modified according to its own requirements, and the corresponding changes should also be applied to the command line and the code.
 
 ## 🖼️ Quick Inference
 For Real-World Video Super-Resolution:
