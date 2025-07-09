@@ -97,6 +97,10 @@
     conda create -n DLoRAL python=3.10 -y
     conda activate DLoRAL
     pip install -r requirements.txt
+    # mim install mmedit and mmcv
+    pip install openmim
+    mim install mmcv-full
+    pip install mmedit
     ```
 
 3. Download Models 
