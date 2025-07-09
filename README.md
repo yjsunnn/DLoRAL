@@ -132,7 +132,8 @@ python src/test_DLoRAL.py     \
 -o /path/to/results
 ```
 
-
+## 💬 Contact:
+If you have any problem (not only about DLoRAL, but also problems regarding to burst/video super-resolution), please feel free to contact me at [email](yujingsun1999@gmail.com)
 
 ### Citations
 If our code helps your research or work, please consider citing our paper.
