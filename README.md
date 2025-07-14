@@ -29,9 +29,10 @@
         <a href="https://github.com/yjsunnn/Awesome-video-super-resolution-diffusion" target="_blank">
         <img src="https://img.shields.io/badge/GitHub-Awesome--VSR--Diffusion-181717.svg?logo=github&logoColor=white">
         </a>
-<!--         <a href="https://www.youtube.com/embed/Jsk8zSE3U-w?si=jz1Isdzxt_NqqDFL&vq=hd1080" target='_blank'>
-        <img src="https://img.shields.io/badge/1--Min%20Algorithm%20Explainer-%23FF0000.svg?logo=YouTube&logoColor=white">
-        </a> -->
+        </a>
+        <a href="https://colab.research.google.com/drive/1QAEn4uFe4GNqlJbogxxhdGFhzMr3rfGm?usp=sharing" target="_blank">
+        <img src="https://img.shields.io/badge/Colab%20Demo-F9AB00?style=flat&logo=googlecolab&logoColor=white">
+        </a>
         <a href="https://github.com/yjsunnn/DLoRAL" target='_blank' style="text-decoration: none;"><img src="https://visitor-badge.laobi.icu/badge?page_id=yjsunnn/DLoRAL"></a>
     </h4>
 </div>
