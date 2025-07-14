@@ -133,10 +133,11 @@ def init_tokenizer():
     # Load model directly
     from transformers import AutoTokenizer, AutoModelForMaskedLM
     
-    tokenizer = AutoTokenizer.from_pretrained("/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/bert-base-uncased")
+    # tokenizer = AutoTokenizer.from_pretrained("/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/bert-base-uncased")
     # tokenizer = AutoTokenizer.from_pretrained("/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/bert-base-uncased")
     # tokenizer = AutoTokenizer.from_pretrained("/mnt/data/cpfs/cfps/personal/syj/OSEDiff/OSEDiff/preset_models/bert-base-uncased")
     # model = AutoModelForMaskedLM.from_pretrained("google-bert/bert-base-uncased")
+    tokenizer = AutoModelForMaskedLM.from_pretrained("google-bert/bert-base-uncased")
 
     tokenizer.add_special_tokens({'bos_token': '[DEC]'})
     tokenizer.add_special_tokens({'additional_special_tokens': ['[ENC]']})
