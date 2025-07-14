@@ -12,3 +12,6 @@ huggingface_hub==0.25.0
 basicsr
 loralib
 fairscale
+numpy==1.24
+jax[cpu]==0.4.13
+jaxlib[cpu]==0.4.13
