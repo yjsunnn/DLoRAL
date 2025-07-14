@@ -45,6 +45,7 @@
 
 ## ⏰ Update
 
+- **2025.07.14**: [Colab demo](https://colab.research.google.com/drive/1QAEn4uFe4GNqlJbogxxhdGFhzMr3rfGm?usp=sharing) is available. ✨ **No installation, no configuration needed** - just upload and enhance!
 - **2025.07.08**: The inference code and pretrained weights are available.
 - **2025.06.24**: The project page is available, including a brief 2-minute explanation video, more visual results and relevant researches.
 - **2025.06.17**: The repo is released.
@@ -67,7 +68,7 @@
 
 ## 👀 TODO
 - [x] Release inference code.
-- [ ] Colab and Huggingface UI for convenient test (Soon!).
+- [x] Colab demo for convenient test.
 - [ ] Release training code.
 - [ ] Release training data.
 
