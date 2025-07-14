@@ -105,8 +105,6 @@
 
 3. Download Models 
 #### Dependent Models
-* [SD21 Base](https://huggingface.co/stabilityai/stable-diffusion-2-1-base) --> put into **/path/to/DLoRAL/preset_models/stable-diffusion-2-1-base**
-* [Bert-Base](https://huggingface.co/google-bert/bert-base-uncased) --> put into **/path/to/DLoRAL/preset_models/bert-base-uncased**
 * [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth) --> put into **/path/to/DLoRAL/preset/models/ram_swin_large_14m.pth**
 * [DAPE](https://drive.google.com/file/d/1KIV6VewwO2eDC9g4Gcvgm-a0LDI7Lmwm/view?usp=drive_link) --> put into **/path/to/DLoRAL/preset/models/DAPE.pth**
 * [Pretrained Weights](https://drive.google.com/file/d/1vpcaySpRx_K-tXq2D2EBqFZ-03Foky8G/view?usp=sharing) --> put into **/path/to/DLoRAL/preset/models/checkpoints/model.pkl**
@@ -118,15 +116,15 @@ For Real-World Video Super-Resolution:
 
 ```
 python src/test_DLoRAL.py     \
---pretrained_model_path /path/to/stable-diffusion-2-1-base     \
---ram_ft_path /path/to/DAPE.pth     \
---ram_path '/path/to/ram_swin_large_14m.pth'     \
+--pretrained_model_path stabilityai/stable-diffusion-2-1-base     \
+--ram_ft_path /path/to/DLoRAL/preset/models/DAPE.pth     \
+--ram_path '/path/to/DLoRAL/preset/models/ram_swin_large_14m.pth'     \
 --merge_and_unload_lora False     \
 --process_size 512     \
---pretrained_model_name_or_path '/path/to/stable-diffusion-2-1-base'     \
+--pretrained_model_name_or_path stabilityai/stable-diffusion-2-1-base     \
 --vae_encoder_tiled_size 4096     \
 --load_cfr     \
---pretrained_path /path/to/model_checkpoint.pkl     \
+--pretrained_path /path/to/DLoRAL/preset/models/checkpoints/model.pkl     \
 --stages 1     \
 -i /path/to/input_videos/     \
 -o /path/to/results
