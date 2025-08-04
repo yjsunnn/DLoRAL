@@ -69,7 +69,7 @@
 ## 👀 TODO
 - [x] Release inference code.
 - [x] Colab demo for convenient test.
-- [ ] Release training code.
+- [x] Release training code.
 - [ ] Release training data.
 
 
@@ -131,6 +131,24 @@ python src/test_DLoRAL.py     \
 -i /path/to/input_videos/     \
 -o /path/to/results
 ```
+
+## ⚙️ Training
+For Real-World Video Super-Resolution:
+
+```
+bash train_scripts.sh
+```
+
+Some key parameters and corresponding meaning:
+Param | Description | Example Value
+--- | --- | ---
+`--quality_iter` | Number of steps for the initial switch from consistency to quality stage | `5000`
+`--quality_iter_1_final` | Number of steps required to switch from the quality stage to the consistency stage | `13000`
+`--quality_iter_2` | Relative number of steps after `quality_iter_1_final` to switch back to the quality stage (actual switch happens at `quality_iter_1_final + quality_iter_2`) | `5000`
+`--lsdir_txt_path` | Dataset path for the first stage | `"/path/to/your/dataset"`
+`--pexel_txt_path` | Dataset path for the second stage | `"/path/to/your/dataset"`
+
+
 
 ## 💬 Contact:
 If you have any problem (not only about DLoRAL, but also problems regarding to burst/video super-resolution), please feel free to contact me at yujingsun1999@gmail.com
