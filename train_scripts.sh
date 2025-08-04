@@ -1,0 +1,37 @@
+#!/bin/bash
+
+CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" accelerate launch src/train_DLoRAL.py \
+    --pretrained_model_name_or_path="/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/stable-diffusion-2-1-base" \
+    --pretrained_model_name_or_path_vsd="/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/stable-diffusion-2-1-base" \
+    --ram_path '/home/notebook/data/group/syj/DLoRAL/preset/models/ram_swin_large_14m.pth'     \
+    --enable_xformers_memory_efficient_attention \
+    --checkpointing_steps 500 \
+    --mixed_precision="fp16" \
+    --report_to "tensorboard" \
+    --seed 123 \
+    --output_dir="experience/OSEDiff_lsdirffhq_bs016_supirNeg_Pexel_2lora_topk_3in2out_opticalflowloss_updatedset_fixnoise_dynamic_optimizersetTrue_0509" \
+    --neg_prompt_vsd "painting, oil painting, illustration, drawing, art, sketch, oil painting, cartoon, CG Style, 3D render, unreal engine, blurring, dirty, messy, worst quality, low quality, frames, watermark, signature, jpeg artifacts, deformed, lowres, over-smooth" \
+    --use_unet_middle_lora \
+    --cfg_vsd 7.5 \
+    --lambda_lpips=2 \
+    --lambda_l2=1 \
+    --lambda_vsd=1 \
+    --lambda_consistency=10 \
+    --min_dm_step_ratio=0.02 \
+    --max_dm_step_ratio=0.5 \
+    --align_method="adain" \
+    --use_online_deg \
+    --deg_file_path="params.yml" \
+    --tracker_project_name "OSEDiff" \
+    --frames 3 \
+    --quality_iter 5000 \
+    --quality_iter_1_final 13000 \
+    --quality_iter_2 5000 \
+    --train_batch_size=1 \
+    --lsdir_txt_path="/home/notebook/data/group/syj/OSEDiff_video/OSEDiff/src/gt_list_LSDIR_shift_fixnoise.txt" \
+    --pexel_txt_path="/home/notebook/data/group/syj/OSEDiff_video/OSEDiff/src/gt_list_pexel_and_REDS_fixnoise_updated_0425.txt" \
+    --learning_rate 5e-5 \
+    --gradient_accumulation_steps=2 \
+    --set_grads_to_none \
+    --lora_rank_unet_quality 4 \
+    --lora_rank_unet_consistency 4
