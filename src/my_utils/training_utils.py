@@ -128,6 +128,7 @@ def parse_args(input_args=None):
 
     ## pretrained_path
     parser.add_argument("--osediff_pretrained_path", default=None, type=str)
+    parser.add_argument('--ram_path', type=str, default=None)
 
     # tile setting
     parser.add_argument("--vae_decoder_tiled_size", type=int, default=224)
