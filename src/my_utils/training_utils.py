@@ -11,6 +11,7 @@ from glob import glob
 
 import cv2
 import numpy as np
+from src.cross_frame_retrieval.cfr_main import SPyNet
 
 def random_crop_same_3(gt, lr, lr_gray, crop_size):
     """
@@ -26,46 +27,56 @@ def random_crop_same_3(gt, lr, lr_gray, crop_size):
 
     return gt_cropped, lr_cropped, lr_gray_cropped
 
+
+spynet = SPyNet(pretrained='https://download.openmmlab.com/mmediting/restorers/''basicvsr/spynet_20210409-c6c1bd09.pth')
+
 def batch_calculate_optical_flow(frames1, frames2, normalize=True):
     """
-    批量计算光流图 (支持GPU Tensor输入)
+    批量计算光流图（用 SPyNet 替代 Farnebäck；可反传）
     参数:
-        frames1: 前一帧 [B,C,H,W] 范围[0,1]
-        frames2: 后一帧 [B,C,H,W]
-        normalize: 是否对光流进行归一化
+        frames1: [B,C,H,W]，RGB或灰度，范围[-1,1]或[0,1]均可
+        frames2: [B,C,H,W]
+        normalize: 是否按 (W,H) 归一化（与旧实现一致）
     返回:
-        flows: 光流图 [B,2,H,W] 的Tensor
+        flows: [B,2,H,W]，与输入在同一 device，单位=像素（或归一化后）
     """
-    assert frames1.dim() == 4 and frames2.dim() == 4, "输入必须是[B,C,H,W]格式"
-    
-    b, c, h, w = frames1.shape
+
+    assert frames1.dim() == 4 and frames2.dim() == 4, "输入必须是 [B,C,H,W]"
+    assert frames1.shape == frames2.shape, "两输入形状需一致"
+    B, C, H, W = frames1.shape
     device = frames1.device
-    flows = torch.zeros(b, 2, h, w, device='cpu')  # 先用CPU处理
+    assert frames2.device == device, "两输入需在同一设备"
+
+    spynet.to(device)
+    spynet.eval()
+    for p in spynet.parameters():
+        p.requires_grad = False
+
+    x1 = frames1
+    x2 = frames2
     
-    # 批量处理每对帧
-    for i in range(b):
-        # 转换为numpy (H,W,3)
-        frame1 = frames1[i].permute(1, 2, 0).detach().cpu().numpy() * 255
-        frame2 = frames2[i].permute(1, 2, 0).detach().cpu().numpy() * 255
-        
-        # 计算灰度图
-        frame1_gray = cv2.cvtColor(frame1.astype(np.uint8), cv2.COLOR_RGB2GRAY)
-        frame2_gray = cv2.cvtColor(frame2.astype(np.uint8), cv2.COLOR_RGB2GRAY)
-        
-        # Farneback光流
-        flow = cv2.calcOpticalFlowFarneback(
-            frame1_gray, frame2_gray, None,
-            pyr_scale=0.5, levels=3, winsize=15,
-            iterations=3, poly_n=5, poly_sigma=1.2, flags=0
-        )  # (H,W,2)
-        
-        if normalize:
-            flow[..., 0] /= w  # u分量归一化
-            flow[..., 1] /= h  # v分量归一化
-        
-        flows[i] = torch.from_numpy(flow).permute(2, 0, 1).float()
-    
-    return flows.to(device)
+    if (x1.min() < 0) or (x1.max() > 1) or (x2.min() < 0) or (x2.max() > 1):
+        x1 = (x1.clamp(-1, 1) + 1) / 2
+        x2 = (x2.clamp(-1, 1) + 1) / 2
+    x1 = x1.clamp(0, 1).float()
+    x2 = x2.clamp(0, 1).float()
+
+    if C == 1:
+        x1 = x1.repeat(1, 3, 1, 1)
+        x2 = x2.repeat(1, 3, 1, 1)
+        C = 3
+    elif C != 3:
+        raise AssertionError(f"SPyNet 需要 1 或 3 通道输入，当前 C={C}")
+
+    flow = spynet(x1, x2)   # [B,2,H,W]
+
+    if normalize:
+        flow = flow.clone()
+        flow[:, 0] /= float(W)
+        flow[:, 1] /= float(H)
+
+    return flow.to(device)
+
 
 ### rotate and flip
 class Augment_RGB_torch:
