@@ -32,7 +32,6 @@ spynet = SPyNet(pretrained='https://download.openmmlab.com/mmediting/restorers/'
 
 def batch_calculate_optical_flow(frames1, frames2, normalize=True):
     """
-    批量计算光流图（用 SPyNet 替代 Farnebäck；可反传）
     参数:
         frames1: [B,C,H,W]，RGB或灰度，范围[-1,1]或[0,1]均可
         frames2: [B,C,H,W]
