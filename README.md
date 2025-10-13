@@ -63,6 +63,7 @@
 
    Pioneering exploration of Dual-LoRA paradigm in Image SR.
 3. **TVT-SR (ICCV2025)** [Paper](https://arxiv.org/pdf/2507.20291) | [Code](https://github.com/Joyies/TVT)
+   
    A compact VAE and compute-efficient UNet able to handle fine-grained structures.
 
 5. **Awesome Diffusion Models for Video Super-Resolution** [Repo](https://github.com/yjsunnn/Awesome-video-super-resolution-diffusion)
