@@ -1,5 +1,5 @@
 diffusers==0.25.0
-torch==2.2.0
+torch==2.0.1
 transformers==4.28.1
 xformers==0.0.20
 einops==0.7.0
