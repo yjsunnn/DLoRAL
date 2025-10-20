@@ -263,7 +263,7 @@ class Generator(torch.nn.Module):
         pretrained_name = setattr(args, 'pretrained_name', getattr(args, 'pretrained_name', None))
         pretrained_path = setattr(args, 'pretrained_path', getattr(args, 'pretrained_path', None))
 
-        args.pretrained_model_name_or_path = '/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/stable-diffusion-2-1-base'
+        # args.pretrained_model_name_or_path = '/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/stable-diffusion-2-1-base'
 
         self.tokenizer = AutoTokenizer.from_pretrained(args.pretrained_model_name_or_path, subfolder="tokenizer")
         self.text_encoder = CLIPTextModel.from_pretrained(args.pretrained_model_name_or_path, subfolder="text_encoder").cuda()
