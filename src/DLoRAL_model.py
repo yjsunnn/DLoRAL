@@ -168,7 +168,7 @@ def initialize_unet_regularizer(rank, return_lora_module_names=False, pretrained
 class CSDLoss(torch.nn.Module):
     def __init__(self, args, accelerator):
         super().__init__()
-        args.pretrained_model_path_csd = '/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/stable-diffusion-2-1-base'
+        # args.pretrained_model_path_csd = '/home/notebook/data/group/syj/OSEDiff/OSEDiff/preset_models/stable-diffusion-2-1-base'
         self.tokenizer = AutoTokenizer.from_pretrained(args.pretrained_model_path_csd, subfolder="tokenizer")
         self.sched = DDPMScheduler.from_pretrained(args.pretrained_model_path_csd, subfolder="scheduler")
         self.args = args
