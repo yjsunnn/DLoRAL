@@ -2,7 +2,7 @@
 
 CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" accelerate launch src/train_DLoRAL.py \
     --pretrained_model_name_or_path="/path/to/stable-diffusion-2-1-base" \
-    --pretrained_model_name_or_path_vsd="/path/to/stable-diffusion-2-1-base" \
+    --pretrained_model_path_csd="/path/to/stable-diffusion-2-1-base" \
     --ram_path '/path/to/ram_swin_large_14m.pth'     \
     --enable_xformers_memory_efficient_attention \
     --checkpointing_steps 500 \
