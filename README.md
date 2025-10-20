@@ -82,7 +82,7 @@
 - [x] Release inference code.
 - [x] Colab demo for convenient test.
 - [x] Release training code.
-- [x] Release training data.
+- [ ] Release training data.
 
 
 ## 🌟 Overview Framework
