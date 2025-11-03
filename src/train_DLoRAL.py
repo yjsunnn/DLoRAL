@@ -243,21 +243,6 @@ def main(args):
         {'params': base_params, 'name': 'base'}                        # conv_in params
     ]
 
-    optimizer = torch.optim.AdamW(
-        param_groups,
-        lr=args.learning_rate,
-        betas=(args.adam_beta1, args.adam_beta2),
-        weight_decay=args.adam_weight_decay,
-        eps=args.adam_epsilon
-    )
-
-    optimizer = torch.optim.AdamW(
-        param_groups,
-        lr=args.learning_rate, 
-        betas=(args.adam_beta1, args.adam_beta2), 
-        weight_decay=args.adam_weight_decay, 
-        eps=args.adam_epsilon
-    )
     #################################
 
 
