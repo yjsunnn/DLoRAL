@@ -132,12 +132,12 @@ For Real-World Video Super-Resolution:
 
 ```
 python src/test_DLoRAL.py     \
---pretrained_model_path stabilityai/stable-diffusion-2-1-base     \
+--pretrained_model_path yujingsun/stable-diffusion-2-1-base     \
 --ram_ft_path /path/to/DLoRAL/preset/models/DAPE.pth     \
 --ram_path '/path/to/DLoRAL/preset/models/ram_swin_large_14m.pth'     \
 --merge_and_unload_lora False     \
 --process_size 512     \
---pretrained_model_name_or_path stabilityai/stable-diffusion-2-1-base     \
+--pretrained_model_name_or_path yujingsun/stable-diffusion-2-1-base     \
 --vae_encoder_tiled_size 4096     \
 --load_cfr     \
 --pretrained_path /path/to/DLoRAL/preset/models/checkpoints/model.pkl     \
