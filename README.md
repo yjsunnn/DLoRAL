@@ -52,7 +52,7 @@
 
 ## ⏰ Update
 
-- **2025.10.16**: We update [**an improved version**](https://drive.google.com/file/d/1AyOITHgEUEk2h90b4O5-KxtLw2Qn4YFP/view?usp=drive_link) of DLoRAL. Thanks [@Feynman1999](https://github.com/Feynman1999) for the bug fixes!
+- **2025.10.16**: We update [**an improved version**](https://drive.google.com/file/d/1C2TLERta3a-PkoMpqQhHoM_S54pNEASO/view?usp=drive_link) of DLoRAL. Thanks [@Feynman1999](https://github.com/Feynman1999) for the bug fixes!
 - **2025.09.18**: DLoRAL is accepted by **NIPS2025** 🎉
 - **2025.07.14**: [**Colab demo**](https://colab.research.google.com/drive/1QAEn4uFe4GNqlJbogxxhdGFhzMr3rfGm?usp=sharing) is available. ✨ **No local GPU or setup needed** - just upload and enhance!
 - **2025.07.08**: The inference code and pretrained weights are available.
@@ -121,8 +121,8 @@
 #### Dependent Models
 * [RAM](https://huggingface.co/spaces/xinyu1205/recognize-anything/blob/main/ram_swin_large_14m.pth) --> put into **/path/to/DLoRAL/preset/models/ram_swin_large_14m.pth**
 * [DAPE](https://drive.google.com/file/d/1KIV6VewwO2eDC9g4Gcvgm-a0LDI7Lmwm/view?usp=drive_link) --> put into **/path/to/DLoRAL/preset/models/DAPE.pth**
-* [Pretrained Weights](https://drive.google.com/file/d/1AyOITHgEUEk2h90b4O5-KxtLw2Qn4YFP/view?usp=drive_link) --> put into **/path/to/DLoRAL/preset/models/checkpoints/model.pkl**
-  - If your goal is to reproduce the results from the paper, we recommend using this version of the [weights](https://drive.google.com/file/d/1vpcaySpRx_K-tXq2D2EBqFZ-03Foky8G/view?usp=sharing) instead.
+* [Pretrained Weights](https://drive.google.com/file/d/1C2TLERta3a-PkoMpqQhHoM_S54pNEASO/view?usp=drive_link) --> put into **/path/to/DLoRAL/preset/models/checkpoints/model.pkl**
+  - If your goal is to reproduce the results from the paper, we recommend using this version of the [weights](https://drive.google.com/file/d/1ycreq0wxmqVUaN3ORQXJfCtqDyD7RlUV/view?usp=drive_link) instead.
 
 
 Each path can be modified according to its own requirements, and the corresponding changes should also be applied to the command line and the code.
